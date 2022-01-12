@@ -27,10 +27,20 @@ addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.6.1")
 
 ### Full Example
 ```yaml
-- name: Sbt Dependency Updates
-  uses: upsync-dev/sbt-dependency-updates-action@v1
-  with:
-    - token: some-token-here
+name: Pull Request Checks
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Sbt Dependency Updates
+        uses: UpSync-Dev/sbt-dependency-updates-action@v1
+        with:
+          - token: some-token-here
 ```
 
 ## Licence
