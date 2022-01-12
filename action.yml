@@ -50,3 +50,6 @@ runs:
         "${{ steps.pull-request.outputs.comments_url }}" \
         --data "$JSON"
       shell: bash
+branding:
+  icon: 'check-square'
+  color: 'red'
