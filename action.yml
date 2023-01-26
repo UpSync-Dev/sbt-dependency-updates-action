@@ -14,7 +14,8 @@ runs:
     - id: pull-request
       run: |
         comments_url=$(jq --raw-output .pull_request.comments_url "$GITHUB_EVENT_PATH")
-        echo "::set-output name=comments_url::$(echo $comments_url)"
+        # echo "::set-output name=comments_url::$(echo $comments_url)"
+        echo "comments_url=$(echo $comments_url)" >> $GITHUB_OUTPUT
       shell: bash
 
     - id: check-if-should-comment
@@ -22,9 +23,11 @@ runs:
         no_of_lines=$(wc -l target/dependency-updates.txt | awk '{print $1}')
         if [ $no_of_lines -gt 1 ]
         then
-          echo "::set-output name=post_comment::$(echo 1)"
+          # echo "::set-output name=post_comment::$(echo 1)"
+          echo "post_comment=$(echo 1)" >> $GITHUB_OUTPUT
         else
-          echo "::set-output name=post_comment::$(echo 0)"
+          # echo "::set-output name=post_comment::$(echo 0)"
+          echo "post_comment=$(echo 0)" >> $GITHUB_OUTPUT
         fi
       shell: bash
 
