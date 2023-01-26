@@ -12,7 +12,7 @@
 * You need to have the `sbt-updates` plugin within your Scala project. 
 * Your `/project/plugins.sbt` file should contain something along the lines of:
 ```scala
-addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.6.1")
+addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.6.4")
 ```
 
 ### Inputs
@@ -22,7 +22,7 @@ addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.6.1")
 
 ### Example
 ```yaml
-- uses: upsync-dev/sbt-dependency-updates-action@v1
+- uses: upsync-dev/sbt-dependency-updates-action@v2
 ```
 
 ### Full Example
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v1
 
       - name: Sbt Dependency Updates
-        uses: UpSync-Dev/sbt-dependency-updates-action@v1
+        uses: UpSync-Dev/sbt-dependency-updates-action@v2
         with:
           - token: some-token-here
 ```
